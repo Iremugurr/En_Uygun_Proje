@@ -1,47 +1,5 @@
 Bu proje, **Enuygun benzeri uçuş arama web uygulaması** üzerinde çalışan testleri otomatikleştirmek için hazırlanmıştır. Testler **Java + Selenium WebDriver + TestNG + Maven** kullanılarak yazılmıştır.
 
-Proje Yapısı
------------
-En_Uygun_Odev/       (proje root)
-├── .gitignore
-├── pom.xml
-├── README.md
-├── testng.xml
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       ├── driver
-│   │   │       ├── models
-│   │   │       ├── pages
-│   │   │       │   ├── BasePage.java
-│   │   │       │   ├── HomePage.java
-│   │   │       │   └── FlightListingPage.java
-│   │   │       └── utils
-│   │   │           ├── ConfigReader.java
-│   │   │           ├── CSVUtil.java
-│   │   │           ├── ScreenshotUtil.java
-│   │   │           └── GraphUtil.java
-│   │   └── resources
-│   │       ├── config.properties
-│   │       └── log4j2.xml
-│   └── test
-│       ├── java
-│       │   └── com
-│       │       ├── analysis
-│       │       │   └── FlightDataAnalysisTests.java
-│       │       ├── api
-│       │       │   └── PetStoreAPITests.java
-│       │       ├── tests
-│       │       │   └── BaseTest.java
-│       │       └── ui
-│       │           └── FlightSearchTests.java
-│       └── resources
-│           └── testng.xml
-├── logs/                (IGNORE - local logs, gitignore içinde olmalı)
-├── screenshots/         (optional, gitignore ile kontrol edilebilir)
-└── target/              (IGNORE - build outputs)
-
 | Teknoloji / Araç                  | Açıklama                            |
 | --------------------------------- | ----------------------------------- |
 | **Java 17+**                      | Ana yazılım dili                    |
@@ -83,5 +41,24 @@ Uçuş verilerinin çekilip raporlanması
 
 CSV/JSON çıktı oluşturma
 
+Mimari: Page Object Model (POM)
+-----------------------------
+
+Her sayfa bir “Page Class” olarak tasarlanmıştır:
+
+BasePage → Ortak methodlar
+
+HomePage → Arama ekranı
+
+FlightListingPage → Uçuş listesi ekranı
+
+Test sınıfları → Sadece senaryoları içerir
+
+Loglama
+--------
+
+Loglar resources/log4j2.xml üzerinden yönetilir.
+
 Teşekkürler,
 İrem Uğur
+
